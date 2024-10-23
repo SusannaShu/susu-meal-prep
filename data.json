@@ -1,0 +1,59 @@
+{
+    "foods": [
+        {
+            "item": {
+                "name": "Tomato",
+                "description": "A red fruit rich in lycopene and vitamin C.",
+                "tip": ["Eat raw for maximum vitamin C", "Cooking increases lycopene availability"],
+                "risk": ["Avoid metal containers for long storage"],
+                "meal_prep_solution": "Store at room temperature for 2-3 days, refrigerate when ripe",
+                "random_fact": "Tomatoes are technically a fruit, but they are commonly used as vegetables.",
+                "storage_time": "3 days"
+            }
+        },
+        {
+            "item": {
+                "name": "Lettuce",
+                "description": "A leafy green vegetable commonly used in salads.",
+                "tip": ["Wash right before eating to avoid wilting", "Store in the fridge for freshness"],
+                "risk": ["Can spoil quickly if not properly stored"],
+                "meal_prep_solution": "Store in the fridge for up to 3 days in a sealed container",
+                "random_fact": "Lettuce was first cultivated by the ancient Egyptians.",
+                "storage_time": "3 days"
+            }
+        },
+        {
+            "item": {
+                "name": "Mushroom",
+                "description": "A type of fungi commonly used in cooking, rich in nutrients.",
+                "tip": ["Store in a paper bag to prevent moisture buildup"],
+                "risk": ["Not good for reheating, should be consumed as soon as cooked"],
+                "meal_prep_solution": "Keep in the fridge for up to 3 days, store in a paper bag for moisture control",
+                "random_fact": "Mushrooms can produce vitamin D when exposed to sunlight.",
+                "storage_time": "3 days"
+            }
+        },
+        {
+            "item": {
+                "name": "Bell Pepper",
+                "description": "A colorful vegetable rich in vitamin C and antioxidants.",
+                "tip": ["Eat raw for maximum vitamin C, or roast to enhance flavor"],
+                "risk": ["Avoid overcooking as it may lose nutrients"],
+                "meal_prep_solution": "Store in the fridge for up to 5-7 days",
+                "random_fact": "Red bell peppers are fully ripened versions of green peppers.",
+                "storage_time": "5 days"
+            }
+        },
+        {
+            "item": {
+                "name": "Natto",
+                "description": "A fermented soybean product, rich in probiotics and vitamin K2.",
+                "tip": ["Best eaten raw to preserve probiotics"],
+                "risk": ["Not suitable for people with soy allergies"],
+                "meal_prep_solution": "Store in the fridge for up to 7 days or freeze for longer storage",
+                "random_fact": "Natto contains nattokinase, an enzyme believed to help with blood circulation.",
+                "storage_time": "7 days"
+            }
+        }
+    ]
+}
