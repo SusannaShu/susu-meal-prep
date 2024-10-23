@@ -4,14 +4,16 @@
   "description": "convenient meal preping tips that maximize nutritin and minimize risks",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1", 
-    "start": "node index.js", 
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
     "develop": "nodemon index.js"
   },
   "author": "SusannaShu",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "fs": "^0.0.1-security",
+    "nodemon": "^3.1.7"
   },
   "type": "module"
 }

@@ -1,121 +1,217 @@
-# susu-meal-prep
-convenient meal preping tips that maximize nutritin and minimize risks
+# SuSu Meal Prep API Documentation
 
-### API Description
+This API helps users manage their groceries, track food storage time, and get the best tips for meal prepping to maximize nutrition, convenience, and safety. It provides information on how to store, cook, and safely handle various food items.
 
-The **SuSu Meal Prep API** will help users manage their groceries, suggest the best ways to prepare foods while maximizing nutritional value and safety, and track the storage time of items. The API will provide advice on how to store, prep, and cook different food items to help users maintain a healthy lifestyle.
+## Base URL:
 
-### Three Request Types & Expected Results
+```arduino
+https://susu-meal-prep.onrender.com
 
-**1. Query for Meal Prep Tips by Food Item**
+```
 
-- **Input**: Users can query the API by specifying a food item (e.g., `GET /meal-prep/tomato`).
-- **Expected Result**: The API will return meal prep tips, risks, storage information, and random facts about the queried food item.
-- **Example Result**:
+---
 
-```jsx
+## Endpoints
+
+### 1. **Get Meal Prep Tips by Food Item**
+
+### Description:
+
+Retrieve detailed meal prep tips, risks, storage information, and random facts about a specific food item.
+
+### Endpoint:
+
+```bash
+GET /meal-prep/:item
+
+```
+
+### Parameters:
+
+- `item` (string) — The name of the food item you want to query. It is case-insensitive.
+
+### Example Request:
+
+```bash
+GET /meal-prep/tomato
+
+```
+
+### Example Response:
+
+```json
+json
+Copy code
 {
-   "item": {
-     "name": "Tomato",
-     "description": "A red fruit rich in lycopene and vitamin C.",
-     "tip": ["Eat raw for maximum vitamin C", "Cooking increases lycopene availability"],
-     "risk": ["Avoid metal containers for long storage"],
-     "meal_prep_solution": "Store at room temperature for 2-3 days, refrigerate when ripe",
-     "random_fact": "Tomatoes are technically a fruit, but they are commonly used as vegetables."
-   }
+  "description": "A red fruit rich in lycopene and vitamin C.",
+  "tip": ["Eat raw for maximum vitamin C", "Cooking increases lycopene availability"],
+  "risk": ["Avoid metal containers for long storage"],
+  "meal_prep_solution": "Store at room temperature for 2-3 days, refrigerate when ripe",
+  "random_fact": "Tomatoes are technically a fruit, but they are commonly used as vegetables.",
+  "storage_time": "3 days"
 }
 
 ```
 
-**2. Query for Foods by Storage Time**
+### Error Response (If food item not found):
 
-- **Input**: Users can query the API by specifying a time range for storage (e.g., `GET /storage?time=3` to return foods that can be stored for 3 days).
-- **Expected Result**: The API will return a list of food items that can be stored for the specified amount of time with meal prep tips.
-- **Example Result**:
-
-```jsx
+```json
 {
-   "items": [
-      {
-         "name": "Lettuce",
-         "storage_time": "3 days",
-         "tip": "Store in the crisper drawer in a sealed container"
-      },
-      {
-         "name": "Mushrooms",
-         "storage_time": "3 days",
-         "tip": "Store in a paper bag for moisture control"
-      }
-   ]
+  "message": "Sorry, we don't have information about Tomato."
 }
 
 ```
 
-**3. Query for Safe Storage and Prep Tips for Food Combinations**
+---
 
-- **Input**: Users can send multiple food items in a query (e.g., `GET /safe-prep?items=lettuce,tomato,mushroom`).
-- **Expected Result**: The API will return a combined response with recommendations for safely storing and preparing these food items together.
-- **Example Result**:
+### 2. **Get Foods by Storage Time**
 
-```jsx
+### Description:
+
+Retrieve a list of foods that can be stored for a specified number of days.
+
+### Endpoint:
+
+```bash
+GET /storage
+
+```
+
+### Query Parameters:
+
+- `time` (number) — The number of days you want to query for food storage time.
+
+### Example Request:
+
+```sql
+GET /storage?time=3
+
+```
+
+### Example Response:
+
+```json
+json
+Copy code
 {
-   "items": [
-      {
-         "name": "Lettuce",
-         "safe_storage": "Store separately in a sealed container, can last up to 3 days",
-         "prep_tip": "Wash right before eating to avoid wilting"
-      },
-      {
-         "name": "Tomato",
-         "safe_storage": "Store at room temperature unless fully ripe",
-         "prep_tip": "Great for fresh salads when combined with leafy greens"
-      },
-      {
-         "name": "Mushroom",
-         "safe_storage": "Store in a paper bag to prevent moisture accumulation",
-         "prep_tip": "Add mushrooms raw to salads or sauté for better texture"
-      }
-   ]
+  "items": [
+    {
+      "name": "Lettuce",
+      "tip": "Store in the fridge for freshness",
+      "storage_time": "3 days"
+    },
+    {
+      "name": "Mushroom",
+      "tip": "Store in a paper bag to prevent moisture buildup",
+      "storage_time": "3 days"
+    }
+  ]
 }
 
 ```
 
-### 3. Query Structure
+### Error Response (If no items found for the specified time):
 
-1. **GET /meal-prep/**
-    - **Description**: Retrieves the details of a specific food item.
-    - **Example**: `/meal-prep/tomato`
-    - **Expected Result**: Detailed meal prep tips, risks, storage, and fun facts about the food item.
-2. **GET /storage?time={time}**
-    - **Description**: Returns a list of foods that can be safely stored for the specified amount of time (in days).
-    - **Example**: `/storage?time=3`
-    - **Expected Result**: A list of food items with storage time matching the query, along with brief tips.
-3. **GET /safe-prep?items={item1,item2,...}**
-    - **Description**: Retrieves combined safe storage and preparation recommendations for multiple food items.
-    - **Example**: `/safe-prep?items=lettuce,tomato,mushroom`
-    - **Expected Result**: Combined safety tips and preparation advice for the specified items.
-
-### 4. Data Required in JSON File
-
-To fulfill these requests, the JSON file should contain the following data structure for each food item:
-
-```jsx
+```json
 {
-  "item": {
-    "name": "Tomato",
-    "description": "A red fruit rich in lycopene and vitamin C.",
-    "tip": ["Eat raw for maximum vitamin C", "Cooking increases lycopene availability"],
-    "risk": ["Avoid metal containers for long storage"],
-    "meal_prep_solution": "Store at room temperature for 2-3 days, refrigerate when ripe",
-    "random_fact": "Tomatoes are technically a fruit, but they are commonly used as vegetables.",
-    "storage_time": "3 days"
-  }
+  "message": "No items found with storage time of 3 days."
 }
 
 ```
 
-For the `GET /storage?time=` query, each item will need a `storage_time` field to match the query.
+---
 
-For `GET /safe-prep?items=`, each item should have fields like `safe_storage` and `prep_tip` to allow the API to respond with safety information for multiple items.
+### 3. **Get Safe Storage and Prep Tips for Multiple Items**
 
-This structure allows for flexibility, scalability, and detailed responses to user requests, while keeping the API simple and focused on helping users manage their meal prep efficiently.
+### Description:
+
+Get combined safe storage and preparation tips for multiple food items.
+
+### Endpoint:
+
+```bash
+GET /safe-prep
+
+```
+
+### Query Parameters:
+
+- `items` (string) — A comma-separated list of food items you want to query. For example: `lettuce,tomato,mushroom`.
+
+### Example Request:
+
+```bash
+GET /safe-prep?items=lettuce,tomato,mushroom
+
+```
+
+### Example Response:
+
+```json
+{
+  "items": [
+    {
+      "name": "Lettuce",
+      "safe_storage": "Store in the fridge for up to 3 days in a sealed container",
+      "prep_tip": "Wash right before eating to avoid wilting"
+    },
+    {
+      "name": "Tomato",
+      "safe_storage": "Store at room temperature unless fully ripe",
+      "prep_tip": "Great for fresh salads when combined with leafy greens"
+    },
+    {
+      "name": "Mushroom",
+      "safe_storage": "Store in a paper bag to prevent moisture accumulation",
+      "prep_tip": "Add mushrooms raw to salads or sauté for better texture"
+    }
+  ]
+}
+
+```
+
+### Error Response (If no matching items found):
+
+```json
+{
+  "message": "No matching items found for your query."
+}
+
+```
+
+---
+
+## Error Handling
+
+If the request cannot be processed, the API will return an error message with a status code indicating the issue.
+
+- **404 Not Found**: If the requested food item or storage time is not available in the database.
+
+Example:
+
+```json
+{
+  "message": "Sorry, we don't have information about Lettuce."
+}
+
+```
+
+---
+
+## Running the API
+
+1. Install the required dependencies (e.g., `express`):
+    
+    ```bash
+    npm install
+    
+    ```
+    
+2. Run the server:
+    
+    ```bash
+    node index.js
+    
+    ```
+    
+3. The API will listen on `http://localhost:3001`.
