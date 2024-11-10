@@ -1,6 +1,7 @@
 // Import the express library
 import express from 'express';
 import fs from 'fs';
+import cors from 'cors';
 const mealPrepData = JSON.parse(fs.readFileSync('data.json', 'utf8'));
 
 // Creating an instance of an express application
