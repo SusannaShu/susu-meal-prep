@@ -5,6 +5,9 @@ const mealPrepData = JSON.parse(fs.readFileSync('data.json', 'utf8'));
 
 // Creating an instance of an express application
 const app = express();
+app.use(cors({
+    origin: '*'
+}));
 
 // Defining the port we want to listen on
 const port = process.env.PORT || 3001;
