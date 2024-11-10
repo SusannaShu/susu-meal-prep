@@ -61,6 +61,54 @@ app.get('/safe-prep', (req, res) => {
     }
 });
 
+// New endpoint to get food images
+app.get('/food-image/:item', (req, res) => {
+    const requestedItem = req.params.item.charAt(0).toUpperCase() + req.params.item.slice(1).toLowerCase();
+
+    if (mealPrepData[requestedItem] && mealPrepData[requestedItem].image) {
+        res.json({ 
+            name: requestedItem,
+            image: mealPrepData[requestedItem].image 
+        });
+    } else {
+        res.status(404).json({ message: `No image found for ${requestedItem}.` });
+    }
+});
+
+// New endpoint to get cuisine information
+app.get('/cuisine/:item', (req, res) => {
+    const requestedItem = req.params.item.charAt(0).toUpperCase() + req.params.item.slice(1).toLowerCase();
+
+    if (mealPrepData[requestedItem] && mealPrepData[requestedItem].cuisine) {
+        res.json({ 
+            name: requestedItem,
+            cuisine: mealPrepData[requestedItem].cuisine 
+        });
+    } else {
+        res.status(404).json({ message: `No cuisine information found for ${requestedItem}.` });
+    }
+});
+
+// New endpoint to get both food and cuisine images
+app.get('/food-details/:item', (req, res) => {
+    const requestedItem = req.params.item.charAt(0).toUpperCase() + req.params.item.slice(1).toLowerCase();
+
+    if (mealPrepData[requestedItem]) {
+        const foodInfo = mealPrepData[requestedItem];
+        res.json({
+            name: requestedItem,
+            food_image: foodInfo.image,
+            cuisine: {
+                name: foodInfo.cuisine.name,
+                origin: foodInfo.cuisine.origin,
+                image: foodInfo.cuisine.image
+            }
+        });
+    } else {
+        res.status(404).json({ message: `No information found for ${requestedItem}.` });
+    }
+});
+
 // Setting up the application to listen to the defined port
 app.listen(port, () => {
     console.log(`SuSu Meal Prep app is listening on port ${port}`);

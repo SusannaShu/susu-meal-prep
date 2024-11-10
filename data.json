@@ -5,7 +5,13 @@
       "risk": ["Avoid metal containers for long storage"],
       "meal_prep_solution": "Store at room temperature for 2-3 days, refrigerate when ripe",
       "random_fact": "Tomatoes are technically a fruit, but they are commonly used as vegetables.",
-      "storage_time": "3 days"
+      "storage_time": "3 days",
+      "image": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=500",
+      "cuisine": {
+        "name": "Bruschetta",
+        "origin": "Italian",
+        "image": "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?q=80&w=500"
+      }
     },
     "Lettuce": {
       "description": "A leafy green vegetable commonly used in salads.",
@@ -13,7 +19,13 @@
       "risk": ["Can spoil quickly if not properly stored"],
       "meal_prep_solution": "Store in the fridge for up to 3 days in a sealed container",
       "random_fact": "Lettuce was first cultivated by the ancient Egyptians.",
-      "storage_time": "3 days"
+      "storage_time": "3 days",
+      "image": "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?q=80&w=500",
+      "cuisine": {
+        "name": "Caesar Salad",
+        "origin": "Mexican-American",
+        "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?q=80&w=500"
+      }
     },
     "Mushroom": {
       "description": "A type of fungi commonly used in cooking, rich in nutrients.",
@@ -21,7 +33,13 @@
       "risk": ["Not good for reheating, should be consumed as soon as cooked"],
       "meal_prep_solution": "Keep in the fridge for up to 3 days, store in a paper bag for moisture control",
       "random_fact": "Mushrooms can produce vitamin D when exposed to sunlight.",
-      "storage_time": "3 days"
+      "storage_time": "3 days",
+      "image": "https://www.thespruceeats.com/thmb/PDnFtFMkfMsRBC1XqhCv0OP-J6I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/what-are-button-mushrooms-5197530-hero-06-3d46a10b9e924f67849d5e7a049a6a2d.jpg",
+      "cuisine": {
+        "name": "Mushroom Risotto",
+        "origin": "Italian",
+        "image": "https://cdn.loveandlemons.com/wp-content/uploads/2023/01/mushroom-risotto-500x500.jpg"
+      }
     },
     "Bell Pepper": {
       "description": "A colorful vegetable rich in vitamin C and antioxidants.",
@@ -29,7 +47,13 @@
       "risk": ["Avoid overcooking as it may lose nutrients"],
       "meal_prep_solution": "Store in the fridge for up to 5-7 days",
       "random_fact": "Red bell peppers are fully ripened versions of green peppers.",
-      "storage_time": "5 days"
+      "storage_time": "5 days",
+      "image": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?q=80&w=500",
+      "cuisine": {
+        "name": "Stuffed Bell Peppers",
+        "origin": "Mediterranean",
+        "image": "https://hips.hearstapps.com/hmg-prod/images/stuffed-peppers-recipe-2-6594706a0a63b.jpg?crop=0.6666666666666667xw:1xh;center,top&resize=1200:*"
+      }
     },
     "Natto": {
       "description": "A fermented soybean product, rich in probiotics and vitamin K2.",
@@ -37,7 +61,13 @@
       "risk": ["Not suitable for people with soy allergies"],
       "meal_prep_solution": "Store in the fridge for up to 7 days or freeze for longer storage",
       "random_fact": "Natto contains nattokinase, an enzyme believed to help with blood circulation.",
-      "storage_time": "7 days"
+      "storage_time": "7 days",
+      "image": "https://revolutionfermentation.com/wp-content/uploads/2021/04/making-homemade-natto-500x500.jpg",
+      "cuisine": {
+        "name": "Natto Gohan",
+        "origin": "Japanese",
+        "image": "https://www.ellielikes.cooking/wp-content/uploads/2022/02/natto-gohan-5.jpg"
+      }
     }
   }
   

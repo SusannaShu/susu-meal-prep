@@ -181,6 +181,120 @@ GET /safe-prep?items=lettuce,tomato,mushroom
 
 ---
 
+### 4. **Get Food Image**
+
+### Description:
+Retrieve the image URL for a specific food item.
+
+### Endpoint:
+```bash
+GET /food-image/:item
+```
+
+### Parameters:
+- `item` (string) — The name of the food item you want to get an image for. It is case-insensitive.
+
+### Example Request:
+```bash
+GET /food-image/tomato
+```
+
+### Example Response:
+```json
+{
+  "name": "Tomato",
+  "image": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=500"
+}
+```
+
+### Error Response:
+```json
+{
+  "message": "No image found for Tomato."
+}
+```
+
+---
+
+### 5. **Get Cuisine Information**
+
+### Description:
+Retrieve cuisine details and recipe image for a specific food item.
+
+### Endpoint:
+```bash
+GET /cuisine/:item
+```
+
+### Parameters:
+- `item` (string) — The name of the food item you want to get cuisine information for.
+
+### Example Request:
+```bash
+GET /cuisine/tomato
+```
+
+### Example Response:
+```json
+{
+  "name": "Tomato",
+  "cuisine": {
+    "name": "Bruschetta",
+    "origin": "Italian",
+    "image": "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?q=80&w=500"
+  }
+}
+```
+
+### Error Response:
+```json
+{
+  "message": "No cuisine information found for Tomato."
+}
+```
+
+---
+
+### 6. **Get Complete Food Details**
+
+### Description:
+Retrieve both food and cuisine images along with related information for a specific item.
+
+### Endpoint:
+```bash
+GET /food-details/:item
+```
+
+### Parameters:
+- `item` (string) — The name of the food item you want to get complete details for.
+
+### Example Request:
+```bash
+GET /food-details/tomato
+```
+
+### Example Response:
+```json
+{
+  "name": "Tomato",
+  "food_image": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=500",
+  "cuisine": {
+    "name": "Bruschetta",
+    "origin": "Italian",
+    "image": "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?q=80&w=500"
+  }
+}
+```
+
+### Error Response:
+```json
+{
+  "message": "No information found for Tomato."
+}
+```
+
+---
+
 ## Error Handling
 
 If the request cannot be processed, the API will return an error message with a status code indicating the issue.
